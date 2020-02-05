@@ -37,7 +37,8 @@ As far as the data structure goes its fairy simple, to translate and encode the 
 
 Like any compiler-like program, its functionning is separated in two distinct parts:
 #### I. The forward part that focuses on the source langage.
-1. the lexing of the file. Each sequence of character in the file that corresponds to a regular definition of a token is allocated a new node in the data structure.
-2. the parsing of the data structure to assert validity of the syntax of the file
+1. The lexing of the file. Each sequence of character in the file that corresponds to a regular definition of a token is allocated a new node in the data structure.
+2. The parsing of the data structure to assert validity of the syntax of the file.
+3. A set of semantic verifications and assertions in order to prepare the encoding of the file. 
 
-#### I. The back part that focuses on the destination langage/the output file.
+#### II. The back part that focuses on the destination langage/the output file.
