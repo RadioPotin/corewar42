@@ -12,7 +12,7 @@ Well, the subject requirements consists in two distinct programs and a Redcode w
 
 1. The first program is the Virtual Machine (also called Arena), where the warriors are to fight for victory. Victory goes to the warrior that has executed the `live` command last, meaning the last one alive.
 2. The second one is the assembler of said warriors (also called asm), which is to turn into a binary file, any *.s* file written in the Redcode langage.
-3. The Redcode warrior does not have to be overpowered, it just needs to beat a very basic one called *zork.s*. 
+3. The Redcode warrior does not have to be overpowered, it just needs to beat a very basic one called *zork.s*. Here's our hero that has been specifically designed to beat *zork*. Its efficiency against other warriors remains unproven.
 
 ```Redcode
 .name "Ricardinho Milos"
