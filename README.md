@@ -47,4 +47,34 @@ Like any compiler-like program, its functionning is separated in two distinct pa
 1. The writing of the header. It has a fixed size and some immutable parts. 
 2. The encoding of the executable code of the file, the conversion of each instruction of the file to their corresponding sequence of binary values and the writing of them. <br> More details about header and instruction encoding [here](https://github.com/VBrazhnik/Corewar/wiki/%D0%98%D0%B7-%D0%B0%D1%81%D1%81%D0%B5%D0%BC%D0%B1%D0%BB%D0%B5%D1%80%D0%B0-%D0%B2-%D0%B1%D0%B0%D0%B9%D1%82-%D0%BA%D0%BE%D0%B4).
 
-### 
+## Usage
+
+```
+USAGE:	./asm [Path/To/Filename.s] [--help | --h] [--token-explanation | --exp] [--verbose-full | --vf || --verbose | --v ]
+	[asm]:
+		Binary Assembler for Corewar Project.
+		Arguments hierarchy go from top to low: [Filename.s] > [--h] > [--exp] > [--vf] > [--v].
+		[asm] will only accept from one to the total number of available options number of arguments.
+		See below for more info.
+
+	[Path/To/Filename.s]:
+		Filename must obey <*.s> otherwise usage will be displayed, its presence is mandatory.
+
+OPTIONS: Options may be placed in whichever order. Unknown options will be ignored.
+	[--help] or [--h]:
+		Displays usage.
+
+	[--token-explanation] or [--exp]:
+		Shows meaning of tokens displayed via verbose options.
+
+	[--verbose] or [--v]:
+		Displays nature of lexical units in order of appearance in the file.
+		Information on said lexical units is limited.
+		Also gives limited information in case of error.
+
+	[--verbose-full] or [--vf]:
+		Displays nature of lexical units in order of appearance in the file.
+		Information on said lexical units is extensive.
+		Also gives extensive information in case of error.
+		[--vf] also displays extensive information on the encoding of each instruction found in source file.
+```
