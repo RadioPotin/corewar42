@@ -12,3 +12,10 @@ Well, the subject if separated in two distinct programs:
 
 1. The first one is the Virtual Machine (also called Arena), where the warriors are to fight for victory.
 2. The second one is the assembler of said warriors (also called asm), which is to turn into a binary file, any *".s"* file written in the Redcode langage.
+
+```.name "Ricardinho Milos"
+.comment "Il est juste trop bg mec. Tu vas perdre loser."
+
+live %42
+ld %0, r3
+zjmp %511```
