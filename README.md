@@ -23,6 +23,14 @@ ld %0, r3
 zjmp %511
 ```
 
+### How did proceed ?
+
+The workload was then distributed in pairs. Two of us, jpelleti and gjuste, would work on the coding of the arena, and casautou and myself would work on the assembler program.
+
+When significant progress was made on both sides, we merged workflows and debugged the remaining benign issues together.
+
 ### How did we make it work ?
 
-The workload was then distributed in pairs. Two of us, jpelleti and gjuste, would work on the coding of the arena. And casautou and myself would work on the assembler program.
+I will now focus on the part of the project I have designed and coded: the assembler.
+
+1) 
