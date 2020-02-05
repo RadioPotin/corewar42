@@ -35,7 +35,7 @@ I will now focus on the part of the project I have designed and coded: the assem
 
 As far as the main data structure goes its fairy simple: to translate and encode the source material (ie: the *.s* file), we created a linked-list of heads to linked-lists of tokens where each head is the beginning of a new line in the file and each node is a token that the lexer has identified.
 
-A hashmap is also used to manade label declaration and mention in the file.
+A hashmap is also used to manage label declaration and mention in the file. In order to prevent label double declaration or such semantic issues.
 
 Like any compiler-like program, its functionning is separated in two distinct parts:
 #### I. The front part that focuses on the source langage.
@@ -50,11 +50,13 @@ Like any compiler-like program, its functionning is separated in two distinct pa
 ## Usage
 
 ```
-USAGE:	./asm [Path/To/Filename.s] [--help | --h] [--token-explanation | --exp] [--verbose-full | --vf || --verbose | --v ]
+USAGE:	./asm [Path/To/Filename.s] [--help | --h] [--token-explanation | --exp]
+							[--verbose-full | --vf || --verbose | --v ]
 	[asm]:
 		Binary Assembler for Corewar Project.
 		Arguments hierarchy go from top to low: [Filename.s] > [--h] > [--exp] > [--vf] > [--v].
-		[asm] will only accept from one to the total number of available options number of arguments.
+		[asm] will only accept from one to the total number of available options number of
+		arguments.
 		See below for more info.
 
 	[Path/To/Filename.s]:
@@ -76,5 +78,6 @@ OPTIONS: Options may be placed in whichever order. Unknown options will be ignor
 		Displays nature of lexical units in order of appearance in the file.
 		Information on said lexical units is extensive.
 		Also gives extensive information in case of error.
-		[--vf] also displays extensive information on the encoding of each instruction found in source file.
+		[--vf] also displays extensive information on the encoding of each instruction found in
+		source file.
 ```
