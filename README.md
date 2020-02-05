@@ -33,4 +33,9 @@ When significant progress was made on both sides, we merged workflows and debugg
 
 I will now focus on the part of the project I have designed and coded: the assembler.
 
-1) 
+As far as the data structure goes its fairy simple, to translate and encode the source material (ie: the *.s* file), we created a linked-list of head to token linked-list where each head is the beginning of a new line in the file and each node is a token that the lexer has identified.
+
+Like any compiler-like program, its functionning is separated in three distinct parts:
+1. The forward part that focuses on the source langage:
+  a. the lexing of the file. Each sequence of character in the file that corresponds to a regular definition of a token is allocated a new node in the data structure.
+  b. the parsing of the
