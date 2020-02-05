@@ -1,6 +1,6 @@
 # Corewar_42
 
-Corewar is the final project of the Algorithm branch of 42. It is a team project of 4 individuals.
+Corewar is the final project of the Algorithm branch of 42. It is a team project of 4 individuals who's 42logins can be found in the auteur file.
 
 ### First, what is Corewar ?
 
@@ -22,3 +22,7 @@ live %42
 ld %0, r3
 zjmp %511
 ```
+
+### How did we make it work ?
+
+The workload was then distributed in pairs. Two of us, jpelleti and gjuste, would work on the coding of the arena. And casautou and myself would work on the assembler program.
