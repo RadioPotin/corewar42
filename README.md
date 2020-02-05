@@ -37,5 +37,5 @@ As far as the data structure goes its fairy simple, to translate and encode the 
 
 Like any compiler-like program, its functionning is separated in three distinct parts:
 1. The forward part that focuses on the source langage:
-  a. the lexing of the file. Each sequence of character in the file that corresponds to a regular definition of a token is allocated a new node in the data structure.
-  b. the parsing of the
+    a. the lexing of the file. Each sequence of character in the file that corresponds to a regular definition of a token is allocated a new node in the data structure.
+    b. the parsing of the
