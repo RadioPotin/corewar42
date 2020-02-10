@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gjuste <gjuste@student.42.fr>              +#+  +:+       +#+         #
+#    By: dapinto <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2018/11/07 16:47:44 by evogel            #+#    #+#              #
-#    Updated: 2020/01/17 12:59:11 by dapinto          ###   ########.fr        #
+#    Created: 2020/02/10 14:45:04 by dapinto           #+#    #+#              #
+#    Updated: 2020/02/10 15:18:31 by dapinto          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ printf "%b" "$(COM_COLOR)$(COM_STRING) $(OBJ_COLOR)$(@F)$(NO_COLOR)\r"; \
 		printf "%-60b%b" "$(COM_COLOR)$(COM_STRING)$(OBJ_COLOR) $@" "$(ERROR_COLOR)$(ERROR_STRING)$(NO_COLOR)\n"   ; \
 	elif [ -s $@.log ]; then \
 		printf "%-60b%b" "$(COM_COLOR)$(COM_STRING)$(OBJ_COLOR) $@" "$(WARN_COLOR)$(WARN_STRING)$(NO_COLOR)\n"   ; \
-	else  \
+	else\
 		printf "%-60b%b" "$(COM_COLOR)$(COM_STRING)$(OBJ_COLOR) $(@F)" "$(OK_COLOR)$(OK_STRING)$(NO_COLOR)\n"   ; \
 	fi; \
 	cat $@.log; \
@@ -50,22 +50,20 @@ OK_STRING    = "[DONE]"
 ERROR_STRING = "[OHSHIT]"
 WARN_STRING  = "[HOLDUP]"
 COM_STRING   = "[PROJECT]"
-
 #-Make-#
 ASM_NAME = asm
 COREWAR_NAME = corewar
 ASM_NAMEDEB = asmdeb
 COREWAR_NAMEDEB = corewardeb
 CC = clang
-WFG = -Wall -Wextra -Werror
+WFG = -Wall -Wextra -Werror -g -fsanitize=address
 COMP = $(CC) -c
-DEBUG = $(CC) -g -fsanitize=address -fno-omit-frame-pointer
+DEBUG = $(CC) -g
 ANALYZE = $(DEBUG) -analyze
 MKDIR = mkdir -p
 DSYM = *.dSYM
 MKE = make -C
 RMRF = rm -rf
-
 #-Libraries, includes, and paths-#
 #-Directories-#
 DEBUG_DIR = ./debug/
@@ -96,7 +94,6 @@ LIB_PATH = libft/
 MAKE_PATH = libft/
 LIB = $(LIB_PATH)libft.a
 LIBDEB= $(LIB_PATH)libftdeb.a
-
 #-Sources and paths-#
 # ASM
 ASM_SRCS = asm.c
@@ -154,9 +151,9 @@ ASM_SRCS_DIR = ./srcs/asm/
 ASM_PATHS = $(addprefix $(ASM_SRCS_DIR), $(ASM_SRCS))
 # COREWAR
 COREWAR_SRCS = corewar.c
-COREWAR_SRCS +=	read_players.c
-COREWAR_SRCS +=	get_champ.c
-COREWAR_SRCS +=	check_binairy.c
+COREWAR_SRCS += read_players.c
+COREWAR_SRCS += get_champ.c
+COREWAR_SRCS += check_binairy.c
 COREWAR_SRCS += place_champs.c
 COREWAR_SRCS += resources_fct.c
 COREWAR_SRCS += fct_live.c
@@ -206,11 +203,15 @@ ASM_DEBOBJS_PATH = $(addprefix $(ASM_DEBOBJS_DIR), $(ASM_DEBOBJS))
 COREWAR_DEBOBJS_DIR = $(DEBOBJS_DIR)
 COREWAR_DEBOBJS = $(patsubst %.c, %deb.o, $(COREWAR_SRCS))
 COREWAR_DEBOBJS_PATH = $(addprefix $(COREWAR_DEBOBJS_DIR), $(COREWAR_DEBOBJS))
-
 #-Rules-#
 all: $(ASM_NAME) $(COREWAR_NAME)
 
 debug: $(ASM_NAMEDEB) $(COREWAR_NAMEDEB)
+
+analyze:
+	@mkdir -p $(DEBUG_DIR)
+	@printf "\e[32m----------\nLaunching analyzer script.\e[39m\n"
+	@sh build/analyze.sh
 
 $(LIB): FORCE
 	@$(MKE) $(MAKE_PATH)
@@ -265,7 +266,6 @@ clean:
 	@$(RMRF) $(DEBOBJS_DIR)
 	@$(RMRF) $(DEBUG_DIR)static_analyzer
 	@$(RMRF) $(DSYM)
-	@$(RMRF) *.cor
 
 fclean: clean
 	@$(MKE) $(MAKE_PATH) fclean
