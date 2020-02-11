@@ -81,3 +81,22 @@ OPTIONS: Options may be placed in whichever order. Unknown options will be ignor
 		[--vf] also displays extensive information on the encoding of each instruction found in
 		source file.
 ```
+
+## Features
+
+#### I. `make analyze`.
+
+A rule in the makefile that launches a non-protected script that downloads clang's static analyzer, launches it while compiling the project and launches the `scanview` binary to generate a Error Log Web Page in your favourite browser.
+
+#### II. Token explanation.
+
+An option `[--token-explanation] or [--exp]` that displays the entierety of the lexical units that the asm's lexer can generate. It is meant to clarify the verbose options.
+
+#### III. Verbose options.
+
+`[--verbose] or [--v]` and `[--verbose-full] or [--vf]` are similar but distinc options.
+
+`--vf` is more interesting for the unacquainted eye because:
+	1. It displays the entire sequence of tokens found in the file with extensive information about position and content of every given token.
+	2. It also breaks down every step of the encoding before outputing the binary file. This was indeed very useful for debugging and understanding the background of the encoding for every possible instruction.
+	3. Finally, it gives extensive information on the reason of any possible error. Meaning: reason of error, and possibly its position.
