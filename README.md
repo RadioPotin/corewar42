@@ -97,6 +97,8 @@ An option `[--token-explanation] or [--exp]` that displays the entierety of the 
 `[--verbose] or [--v]` and `[--verbose-full] or [--vf]` are similar but distinc options.
 
 `--vf` is more interesting for the unacquainted eye because:
-    1. It displays the entire sequence of tokens found in the file with extensive information about position and content of every given token.
-    2. It also breaks down every step of the encoding before outputing the binary file. This was indeed very useful for debugging and understanding the background of the encoding for every possible instruction.
-    3. Finally, it gives extensive information on the reason of any possible error. Meaning: reason of error, and possibly its position.
+1. It displays the entire sequence of tokens found in the file with extensive information about position and content of every given token.
+
+2. It also breaks down every step of the encoding before outputing the binary file. This was indeed very useful for debugging and understanding the background of the encoding for every possible instruction.
+
+3. Finally, it gives extensive information on the reason of any possible error. Meaning: reason of error, and possibly its position.
